@@ -1,77 +1,87 @@
-import React from "react";
+
+import React, { useState } from "react";
 
 export default function Home() {
+  const [score, setScore] = useState("");
+  const [fanVotes, setFanVotes] = useState([]);
+  const handleVote = () => {
+    const value = parseFloat(score);
+    if (value >= 1 && value <= 10) {
+      setFanVotes([...fanVotes, value]);
+      setScore("");
+    }
+  };
+  const average = fanVotes.length
+    ? (fanVotes.reduce((a, b) => a + b, 0) / fanVotes.length).toFixed(1)
+    : "N/A";
+
   return (
-    <main className="bg-gradient-to-b from-black via-red-950 to-black min-h-screen text-white font-sans">
-      <header className="bg-red-900 flex justify-between items-center p-6 text-white font-bold text-xl">
+    <main className="bg-gradient-to-b from-black via-red-950 to-black text-white min-h-screen">
+      <header className="flex justify-between items-center p-6 bg-red-900">
         <div className="flex items-center space-x-4">
-          <img src="/corny.png" alt="Corny" className="w-10 h-10" />
-          <h1 className="text-2xl tracking-wider">COMING THIS SUMMER</h1>
+          <img src="/corny.png" className="w-10 h-10" alt="Corny" />
+          <h1 className="text-2xl font-bold tracking-wider">COMING THIS SUMMER</h1>
         </div>
         <nav className="space-x-4 text-sm">
           <a href="#">Reviews</a>
           <a href="#">Categories</a>
-          <a href="#">Staff Picks</a>
-          <a href="#">Fan Rankings</a>
-          <a href="#">CTS JR</a>
-          <a href="#">About</a>
+          <a href="#">News</a>
+          <a href="#">Fan Scores</a>
+          <a href="#">Reddit</a>
+          <a href="#">YouTube</a>
         </nav>
       </header>
 
-      <section className="px-4 py-10 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Latest Reviews</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="rounded-xl p-4 bg-red-800">
-            <h3 className="text-xl font-bold">Must See</h3>
-            <img src="/mickey17.jpg" className="rounded mt-2" />
-            <p className="mt-2 text-sm">Jay Martin - A highly entertaining adaptation of the novel.</p>
-            <span className="bg-green-600 px-2 py-1 rounded text-sm inline-block mt-2">9.0</span>
-          </div>
-          <div className="rounded-xl p-4 bg-blue-800">
-            <h3 className="text-xl font-bold">Wait for Streaming</h3>
-            <img src="/godzilla.jpg" className="rounded mt-2" />
-            <p className="mt-2 text-sm">Ryan Sharp - Too geared toward younger viewers, but still fun.</p>
-            <span className="bg-blue-600 px-2 py-1 rounded text-sm inline-block mt-2">6.5</span>
-          </div>
-          <div className="rounded-xl p-4 bg-red-950">
-            <h3 className="text-xl font-bold">Skip It</h3>
-            <img src="/kraven.jpg" className="rounded mt-2" />
-            <p className="mt-2 text-sm">JJ - Without a doubt one to avoid.</p>
-            <span className="bg-red-600 px-2 py-1 rounded text-sm inline-block mt-2">2.0</span>
-          </div>
+      <section className="p-6 max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4">🎯 Fan Score Spotlight</h2>
+        <div className="bg-gray-900 p-6 rounded-xl space-y-4">
+          <h3 className="text-lg font-semibold">Vote your score for "Dune: Part Two"</h3>
+          <input
+            type="number"
+            step="0.1"
+            min="1"
+            max="10"
+            value={score}
+            onChange={(e) => setScore(e.target.value)}
+            className="text-black p-2 rounded"
+            placeholder="e.g. 7.7"
+          />
+          <button onClick={handleVote} className="bg-green-700 px-4 py-2 rounded ml-2">
+            Submit
+          </button>
+          <p className="mt-4">Average Fan Score: <span className="font-bold text-blue-400">{average}</span></p>
         </div>
       </section>
 
-      <section className="bg-black text-white px-6 py-8 max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">Fan Score Spotlight</h2>
-        <div className="bg-gray-900 p-4 rounded-xl shadow-xl flex flex-col md:flex-row md:items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <img src="/dune.jpg" alt="Dune" className="w-24 h-36 object-cover rounded-lg" />
-            <div>
-              <h3 className="text-xl font-semibold">Dune: Part Two</h3>
-              <p className="text-sm text-gray-300">New sci-fi epic from Denis Villeneuve</p>
-            </div>
-          </div>
-          <div className="mt-4 md:mt-0 flex space-x-6 text-center">
-            <div>
-              <p className="text-sm text-gray-400">Jay</p>
-              <div className="text-2xl font-bold text-green-400">9.1</div>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400">Ryan</p>
-              <div className="text-2xl font-bold text-yellow-400">7.5</div>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400">Fans</p>
-              <div className="text-2xl font-bold text-blue-400">8.6</div>
-            </div>
-          </div>
+      <section className="p-6 max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4">📰 Latest News</h2>
+        <ul className="list-disc pl-5 space-y-2 text-sm">
+          <li><a href="https://variety.com" className="text-blue-400" target="_blank">Variety Headline Example</a></li>
+          <li><a href="https://deadline.com" className="text-blue-400" target="_blank">Deadline Headline Example</a></li>
+        </ul>
+      </section>
+
+      <section className="p-6 max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4">🔗 Reddit & YouTube</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <iframe
+            src="https://www.reddit.com/r/movies/new/.embed"
+            className="w-full h-64 bg-white"
+            title="Reddit Feed"
+          />
+          <iframe
+            width="100%"
+            height="250"
+            src="https://www.youtube.com/embed?listType=user_uploads&list=ComingThisSummer"
+            title="YouTube"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
         </div>
       </section>
 
-      <footer className="flex justify-between items-center p-4 text-sm text-white bg-black">
-        <span>© 2025 Coming This Summer</span>
-        <img src="/corny.png" alt="Corny" className="w-12 h-12" />
+      <footer className="p-6 text-sm text-center text-white bg-black">
+        <p>© 2025 Coming This Summer | Built with 🌽 by Jay</p>
       </footer>
     </main>
   );
