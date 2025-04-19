@@ -15,7 +15,7 @@ export default function FanScore() {
   };
 
   return (
-    <div className="bg-gray-800 p-4 rounded-xl text-white">
+    <div className="bg-gray-800 p-4 rounded-xl text-white shadow-md">
       <h3 className="text-xl mb-2 font-semibold">Fan Rating</h3>
       <p className="text-3xl font-bold mb-4">{score}</p>
       <input
