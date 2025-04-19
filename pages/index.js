@@ -1,13 +1,15 @@
+
+import dynamic from 'next/dynamic';
+
+const FanScore = dynamic(() => import('../components/FanScore'), { ssr: false });
+
 export default function HomePage() {
   return (
     <main className="p-6 space-y-12 bg-gray-950 text-white min-h-screen">
       {/* 🗳️ Fan Score Spotlight */}
       <section>
         <h2 className="text-2xl font-bold mb-4">Fan Score Spotlight</h2>
-        <div className="bg-gray-800 p-4 rounded-xl shadow-md">
-          {/* This is where your Fan Score component goes */}
-          <p>Live Fan Score system here 🔥</p>
-        </div>
+        <FanScore />
       </section>
 
       {/* 📰 News Feed */}
