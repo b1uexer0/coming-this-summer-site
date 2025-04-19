@@ -42,6 +42,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-black text-white px-6 py-8 max-w-6xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4">Fan Score Spotlight</h2>
+        <div className="bg-gray-900 p-4 rounded-xl shadow-xl flex flex-col md:flex-row md:items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <img src="/dune.jpg" alt="Dune" className="w-24 h-36 object-cover rounded-lg" />
+            <div>
+              <h3 className="text-xl font-semibold">Dune: Part Two</h3>
+              <p className="text-sm text-gray-300">New sci-fi epic from Denis Villeneuve</p>
+            </div>
+          </div>
+          <div className="mt-4 md:mt-0 flex space-x-6 text-center">
+            <div>
+              <p className="text-sm text-gray-400">Jay</p>
+              <div className="text-2xl font-bold text-green-400">9.1</div>
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Ryan</p>
+              <div className="text-2xl font-bold text-yellow-400">7.5</div>
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Fans</p>
+              <div className="text-2xl font-bold text-blue-400">8.6</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="flex justify-between items-center p-4 text-sm text-white bg-black">
         <span>© 2025 Coming This Summer</span>
         <img src="/corny.png" alt="Corny" className="w-12 h-12" />
