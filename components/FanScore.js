@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function FanScore() {
   const [score, setScore] = useState(7.5);
-  const [votes, setVotes] = useState([7.5]); // Placeholder: you can replace with real backend data
+  const [votes, setVotes] = useState([7.5]);
 
   const handleVote = () => {
     const newVotes = [...votes, score];
