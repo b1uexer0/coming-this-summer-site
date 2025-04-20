@@ -1,5 +1,5 @@
 {
-  "name": "coming-this-summer",
+  "name": "coming-this-summer-v2",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.4",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@supabase/supabase-js": "^2.39.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
