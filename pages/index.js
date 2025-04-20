@@ -1,5 +1,7 @@
 import React from "react";
 
+import FanVote from "../components/FanVote";
+
 export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen font-sans">
@@ -19,6 +21,7 @@ export default function Home() {
 
       <section className="p-6">
         <h2 className="text-2xl font-bold mb-2">Fan Score Spotlight</h2>
+    <FanVote movieId="dune2" />
         <div className="bg-gray-900 p-4 rounded-lg flex justify-between items-center">
           <div>
             <h3 className="text-xl">Dune: Part Two</h3>
